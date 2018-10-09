@@ -3,14 +3,23 @@ const app = express();
 const Pokemon = require('./model/pokemon');
 
 
-
-
-// app.get('/', () =>{
-//     app.render('index.ejs', )
+// app.get('/pokemon', (req, res) => {
+//     res.send(Pokemon)
 // })
 
+app.get('/pokemon', (req, res) =>{
+    console.log(req.params)
+    res.render('index.ejs', {
+        pokemon: Pokemon
+    })
+})
 
 
+app.get('/pokemon/:index', (req, res) => {
+    res.render('show.ejs', {
+        pokemon: Pokemon[req.params.index]
+    });
+});
 
 
 

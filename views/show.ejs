@@ -7,11 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <ul class="pokemon">
-        <% for(let i = 0; i < pokemon.length; i++) {%>
-            <li><a href="<%=[i]%>"><%= pokemon[i].name %></a></li>
-
-        <%}%>
-    </ul>
+    <% for(let key in pokemon) { %>
+        <%= pokemon[key] %>
+    <% } %>
+    
 </body>
 </html>
