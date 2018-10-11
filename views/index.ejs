@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        h1 {color:red;}
+        ul {color:blue;}
+        </style>
 </head>
 <body>
     <ul class="pokemon">
         <% for(let i = 0; i < pokemon.length; i++) {%>
             <li><a href="<%=[i]%>"><%= pokemon[i].name %></a></li>
-
+            <form action="/pokemon/<%=i%>?_method=DELETE" method="POST">
+                <input type="submit" value="delete">
+              </form>
+              <a href="/pokemon/<%=i%>/edit">Edit <%=pokemon[i].name%></a>
+            </li>
         <%}%>
     </ul>
 </body>
