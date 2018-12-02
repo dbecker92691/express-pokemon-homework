@@ -35,16 +35,18 @@ app.delete('/pokemon/:id', (req, res) => {
 
 
 // edit
-app.get('/pokemon/:id/edit', (req, res) => {
+app.get('/pokemon/:id/edit', async (req, res) => {
+
     res.render('edit.ejs', {
         pokemon: Pokemon[req.params.id],
         id: req.params.id
     });
-    console.log(req.body, "wrek dat body")
+
+    console.log(req.params, "<------ Edit wrek dat body")
 });
 
 
-app.post('/pokemon/:id', (req, res) => {
+app.put('/pokemon/:id', (req, res) => {
 
     console.log(req.body, "<------ new req.body")
     Pokemon[req.params.id] = req.body;
